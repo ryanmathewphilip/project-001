@@ -279,6 +279,85 @@ p {
   color: var(--gold);
 }
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.gallery-tile {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.075);
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.52));
+  z-index: 1;
+}
+
+.gallery-tile strong,
+.gallery-tile span {
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-tile strong {
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.gallery-tile span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.tile-art {
+  position: absolute;
+  inset: 0;
+  opacity: 0.95;
+}
+
+.tile-sky .tile-art {
+  background:
+    radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.85), transparent 12%),
+    linear-gradient(135deg, #12324a, #71d7ff 55%, #42f5b0);
+}
+
+.tile-gold .tile-art {
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0 10px, transparent 10px 24px),
+    linear-gradient(135deg, #4a2d16, #ffd166 54%, #ff7a78);
+}
+
+.tile-mint .tile-art {
+  background:
+    radial-gradient(circle at 70% 25%, rgba(255, 255, 255, 0.65), transparent 16%),
+    radial-gradient(circle at 25% 72%, rgba(113, 215, 255, 0.65), transparent 24%),
+    linear-gradient(135deg, #102f31, #42f5b0);
+}
+
+.tile-coral .tile-art {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(135deg, #421a2a, #ff7a78 58%, #ffd166);
+  background-size: 22px 22px, 22px 22px, auto;
+}
+
 @media (max-width: 700px) {
   body {
     place-items: start center;
@@ -306,6 +385,7 @@ p {
   }
 
   .chips,
+  .gallery-grid,
   .split {
     grid-template-columns: 1fr;
   }
